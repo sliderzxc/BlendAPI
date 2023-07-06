@@ -1,22 +1,24 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
-    kotlin("jvm") version "1.8.21"
+    alias(libs.plugins.kotlin.jvm)
+    application
 }
 
-group = "org.example"
-version = "1.0-SNAPSHOT"
-
-repositories {
-    mavenCentral()
+allprojects {
+    tasks.withType<KotlinCompile> {
+        kotlinOptions {
+            freeCompilerArgs = listOf(
+                "-Xcontext-receivers",
+                "-opt-in=kotlin.contracts.ExperimentalContracts",
+                "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                "-language-version=2.0",
+                "-XXLanguage:+UnitConversionsOnArbitraryExpressions",
+            )
+        }
+    }
 }
 
-dependencies {
-    testImplementation(kotlin("test"))
-}
-
-tasks.test {
-    useJUnitPlatform()
-}
-
-kotlin {
-    jvmToolchain(11)
+application {
+    mainClass.set("io.timeassistant.backend.application.ApplicationKt")
 }
