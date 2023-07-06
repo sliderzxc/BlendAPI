@@ -1,12 +1,12 @@
 [versions]
 kotlin = "1.8.21"
 ktor = "2.3.2"
-slf4j = "2.0.7"
+
 
 [libraries]
 kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib-jdk8", version = "kotlin" }
 
-slf4j-core = { module = "org.slf4j:slf4j-log4j1", version = "slf4j" }
+slf4j-main = { module = "org.slf4j:slf4j-nop", version = "2.0.7" }
 
 ktor-server-core = { module = "io.ktor:ktor-server-core", version.ref = "ktor" }
 ktor-server-netty = { module = "io.ktor:ktor-server-netty", version.ref = "ktor" }

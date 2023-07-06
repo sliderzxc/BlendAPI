@@ -19,6 +19,10 @@ allprojects {
     }
 }
 
+dependencies {
+//    implementation(libs.kotlin.stdlib)
+}
+
 application {
     mainClass.set("io.timeassistant.backend.application.ApplicationKt")
 }

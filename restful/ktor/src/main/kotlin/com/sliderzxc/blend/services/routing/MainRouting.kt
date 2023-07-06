@@ -1,4 +1,4 @@
-package com.sliderzxc.blend.services
+package com.sliderzxc.blend.services.routing
 
 import io.ktor.server.application.*
 import io.ktor.server.routing.*
